@@ -1,24 +1,20 @@
 'use client'
 
 import { TproductInfo } from '@/app/[id]/[[...slug]]/page';
-import Image from 'next/image';
 import { LuHeart } from 'react-icons/lu';
 import { TbTruckDelivery } from 'react-icons/tb';
 import RenderStars from '../RenderStars/renderStars';
+import handleAddCart from './addToCart';
 import styles from './productInfo.module.css';
 
 
 export default function ProductInfo({review, product}:{review: number,product:TproductInfo}) {
 
-    async function handleAddCart () {
-        const add = await fetch(`/api/products/${product.id}`).then(res=>res.json());
-    }
-
     return (
         <div className={styles.wrapper}>
             <div className={styles.brandAndSKU}>
                 <span className={styles.brand}>
-                    <Image src={'/brand/brand.jpg'} width={32} height={32} alt={`Logo da marca`} style={{margin:'0 10px 0 0'}} />
+                    {/* <Image src={'/brand/brand.jpg'} width={32} height={32} alt={`Logo da marca`} style={{margin:'0 10px 0 0'}} /> */}
                     {product.brand_name}
                 </span>
                 <span className={styles.sku}>
@@ -75,7 +71,7 @@ export default function ProductInfo({review, product}:{review: number,product:Tp
                 </div>
             </div>
             <div style={{display:'flex',flexDirection:'row', justifyContent:'center', marginTop:'32px', gap:'12px'}}>
-                <button className={styles.addCartButton} onClick={()=>handleAddCart()}>Adicionar ao carrinho</button>
+                <button className={styles.addCartButton} onClick={()=>handleAddCart(product.id)}>Adicionar ao carrinho</button>
                 <button className={styles.addFavoriteButton}><LuHeart style={{width:'24px',height:'24px'}}/></button>
             </div>
             <div style={{display:'flex', alignItems:'center', width:'100%', gap:'8px', marginTop:'12px'}}>

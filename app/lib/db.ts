@@ -25,11 +25,12 @@ export default class Repository {
 
     getCart = async (user_id:number) => {
         return await sql`
-            SELECT ci.*,p.name,p.price,p.variant AS stock
+            SELECT ci.*,p.name,p.price,p.images,p.variant AS stock
             FROM cart_items ci
             JOIN cart c ON ci.cart_id = c.id
             JOIN products p ON ci.product_id = p.id
-            WHERE c.user_id = ${user_id};
+            WHERE c.user_id = ${user_id}
+            ORDER BY ci.id ASC;
         `;
     };
 
@@ -67,4 +68,18 @@ export default class Repository {
         return result.rows[0];
     };
 
+    ModifyQuantityItemOnCart = async (cart_id:number, idProductOnCart:number, quantity:number) => {
+        await sql`
+            UPDATE cart_items
+            SET quantity = ${quantity}
+            WHERE id = ${idProductOnCart} AND cart_id = ${cart_id}
+        `;
+    };
+
+    DeleteItemOnCart = async (cart_id:number, idProductOnCart:number) => {
+        await sql`
+            DELETE from cart_items
+            WHERE id = ${idProductOnCart} AND cart_id = ${cart_id}
+        `;
+    };
 }

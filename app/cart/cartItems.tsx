@@ -1,10 +1,14 @@
+'use client'
 
 import Image from 'next/image';
+import Link from 'next/link';
+import { slugify } from '../lib/slugify';
 import styles from './cart.module.css';
+import modifyItemCart from './modifyItemCart';
 import { ICartItem } from './page';
 
 
-export default async function CartItems({item}:{item:ICartItem}) {
+export default function CartItems({item}:{item:ICartItem}) {
 
     const colorStock = item.stock.find((entry) => entry.color === item.variant.color);
     const sizeStock = colorStock?.sizes.find((element) => element.size === Number(item.variant.size))
@@ -20,9 +24,11 @@ export default async function CartItems({item}:{item:ICartItem}) {
     return(
         <div className={styles.itemRow}>
                         <div className={styles.itemDetails}>
-                            <Image src={"/products/aerosport01.jpg"} width={100} height={100} alt=""/>
+                            <Link href={`../${item.product_id}/${slugify(item.name)}`}>
+                                <Image src={item.images[0]} width={100} height={100} alt=""/>
+                            </Link>
                             <div>
-                                <span>{item.name}</span>
+                                <Link href={`../${item.product_id}/${slugify(item.name)}`}>{item.name}</Link>
                                 <span>Cor: {item.variant.color}</span>
                                 <span>Tamanho: {item.variant.size}</span>
                                 <span>SKU:SD54878SQD52</span>
@@ -31,9 +37,9 @@ export default async function CartItems({item}:{item:ICartItem}) {
                         </div>
                         <div className={styles.itemQuantifyInfo}>
                             <div>
-                                <button>-</button>
-                                <span>1</span>
-                                <button>+</button>
+                                <button onClick={()=>modifyItemCart(1,item.cart_id,item.id,item.quantity-1)}>-</button>
+                                <span>{item.quantity}</span>
+                                <button onClick={()=>modifyItemCart(1,item.cart_id,item.id,item.quantity+1)}>+</button>
                             </div>
                             <div className={styles.itemRowValue}>
                                 <span>R$ {item.price}</span>

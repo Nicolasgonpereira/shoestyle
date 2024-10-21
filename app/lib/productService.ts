@@ -29,7 +29,7 @@ export default class ProductService {
         return verify;
     }
 
-    addToCart = async (user_id:number,product_id:any, variant:any, oldCart_id:number) => {
+    addToCart = async (user_id:number,product_id:number, variant:any, oldCart_id:number) => {
 
         let cart_id;
         
@@ -46,5 +46,18 @@ export default class ProductService {
         
         const result = await this.repository.addToCart(product_id,variant,cart_id);
         return result;
+    };
+
+    incrementCartItem = async (user_id:number, cart_id:number, idProductOnCart:number, quantity:number) => {
+
+        if(!(await this.verifyUserCart(user_id,cart_id))) throw new Error;
+
+        if (quantity <=0) {
+
+            await this.repository.DeleteItemOnCart(cart_id,idProductOnCart);
+        } else {
+
+            await this.repository.ModifyQuantityItemOnCart(cart_id,idProductOnCart,quantity);
+        }
     };
 }

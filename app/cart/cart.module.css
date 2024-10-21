@@ -44,6 +44,11 @@
     gap: 8px;
 }
 
+.itemDetails a{
+    text-decoration: none;
+    color: inherit;
+}
+
 .itemQuantifyInfo {
     display: flex;
     flex-direction: row;
@@ -65,8 +70,13 @@
     width: 30%;
     border-radius: 8px;
     background-color: #f0f0f0;
-    padding: 12px;
+    padding: 16px 12px;
     gap: 8px;
+    align-self: flex-start;
+}
+
+.summary h4 {
+    margin: 0 0 16px 0;
 }
 
 .summary div{
