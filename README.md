@@ -15,6 +15,7 @@ ShoeStyle é um e-commerce focado na venda de calçados. Ele oferece funcionalid
 - **Next.js**: Framework React para SSR (Server-Side Rendering).
 - **Styled-Components**: Estilização baseada em componentes.
 - **PostgreSQL**: Banco de dados relacional.
+- **Normalize.css**: Estilização global visando manter consistência visual entre diversos navegadores (cross-browser).
 
 ## Deploy
 
