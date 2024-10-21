@@ -1,0 +1,37 @@
+.profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-weight: 600;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 16px;
+    text-decoration: none;
+    color: inherit;
+    &:hover {
+        color: #99c3ff;
+        cursor: pointer;
+    }
+}
+
+.icon {
+    color: white;
+    height: 24px;
+    width: 24px;
+    color: inherit;
+    
+}
+
+.user {
+    height: 36px;
+    width: 36px;
+}
+
+.itemName {
+    font-size: 0.8rem;
+    margin: 5px 0 0;
+}
