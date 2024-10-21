@@ -46,7 +46,9 @@ export default async function Page({
                 </main>
             )
         }
+
         const correctSlug = slugify(productInfo.name);
+        
         if (params.slug?.[0] !== correctSlug) {
             permanentRedirect(`/${params.id}/${correctSlug}`)
         };
@@ -72,19 +74,19 @@ export default async function Page({
 }
 
 
-export async function generateStaticParams() {
+// export async function generateStaticParams() {
 
-    const products = [
-        {
-        id:'1',
-        slug:'tenis-42br'},
-        {
-        id:'5',
-        slug:'tenis-45br'}
-    ];
+//     const products = [
+//         {
+//         id:'1',
+//         slug:'tenis-42br'},
+//         {
+//         id:'5',
+//         slug:'tenis-45br'}
+//     ];
 
-    return products.map((product)=>({
-        id: product.id,
-        slug: [product.slug]
-    }));
-}
+//     return products.map((product)=>({
+//         id: product.id,
+//         slug: [product.slug]
+//     }));
+// }
