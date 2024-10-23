@@ -9,7 +9,7 @@ export default function Benefits() {
             <div className={styles.card}>
                 <TbTruckDelivery className={styles.icon} />
                 <p>
-                    Frete grátis nas compras acima de R$129,90
+                    Frete grátis nas compras acima de R$ 129,90
                 </p>
             </div>
             <div className={styles.card}>

@@ -121,7 +121,7 @@ export default function Carousel({products}:{products:TproductInfo[]}) {
                         />
                         <h3>{product.name}</h3>
                         <p><RenderStars review={Number(product.rating)} size={24}/></p>
-                        <p>{product.price}</p>
+                        <p>R$ {product.price}</p>
                     </ProductCard>
                 ))}
             </ImageContainer>

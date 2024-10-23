@@ -33,7 +33,7 @@ export default async function Page() {
     const cartItems:ICartItems = await fetch(`http://localhost:3000/api/cart?user_id=1`,{method:'GET', next: { tags: ['cartFetch']}}).then(res=>res.json());
 
     const cartProductPrice:number = cartItems.items.reduce((acc,cur)=>acc+Number(cur.price)*cur.quantity,0);
-    const DeliveryFee:number = cartItems.count<=0?0:cartProductPrice>=129.90?0:29.90;
+    const deliveryFee:number = cartItems.count <= 0 || cartProductPrice >= 129.90 ? 0 : 29.90;
 
     return (
         <main className={styles.mainWrapper}>
@@ -55,11 +55,11 @@ export default async function Page() {
                     </div>
                     <div>
                         <span>Frete</span>
-                        <span>{cartItems.count<=0?"R$ 0.00":DeliveryFee==0?'Grátis':`R$ ${DeliveryFee.toFixed(2)}`}</span>
+                        <span>{cartItems.count<=0?"R$ 0.00":deliveryFee==0?'Grátis':`R$ ${deliveryFee.toFixed(2)}`}</span>
                     </div>
                     <div>
                         <span>Total</span>
-                        <span>R$ {(cartProductPrice+DeliveryFee).toFixed(2)}</span>
+                        <span>R$ {(cartProductPrice+deliveryFee).toFixed(2)}</span>
                     </div>
                 </div>
             </div>
