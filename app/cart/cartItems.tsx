@@ -35,8 +35,8 @@ export default function CartItems({item}:{item:ICartItem}) {
                                 <span>{inStock}</span>
                             </div>
                         </div>
-                        <div className={styles.itemQuantifyInfo}>
-                            <div>
+                        <div className={styles.itemQuantifyAndValue}>
+                            <div className={styles.itemQuantityValue}>
                                 <button onClick={()=>modifyItemCart(1,item.cart_id,item.id,item.quantity-1)}>-</button>
                                 <span>{item.quantity}</span>
                                 <button onClick={()=>modifyItemCart(1,item.cart_id,item.id,item.quantity+1)}>+</button>

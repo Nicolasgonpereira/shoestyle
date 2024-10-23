@@ -49,11 +49,34 @@
     color: inherit;
 }
 
-.itemQuantifyInfo {
+.itemQuantifyAndValue {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 24px;
+}
+
+.itemQuantityValue {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.itemQuantityValue button {
+    width: 25px;
+    height: 25px;
+    border: none;
+    border-radius: 100%;
+    background-color: #000;
+    color: #f0f0f0;
+    padding: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
 }
 
 .itemRowValue {
