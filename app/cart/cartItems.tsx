@@ -31,7 +31,7 @@ export default function CartItems({item}:{item:ICartItem}) {
                                 <Link href={`../${item.product_id}/${slugify(item.name)}`}>{item.name}</Link>
                                 <span>Cor: {item.variant.color}</span>
                                 <span>Tamanho: {item.variant.size}</span>
-                                <span>SKU:SD54878SQD52</span>
+                                <span>SKU:{item.sku}</span>
                                 <span>{inStock}</span>
                             </div>
                         </div>

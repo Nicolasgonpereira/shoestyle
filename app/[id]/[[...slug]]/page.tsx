@@ -13,17 +13,16 @@ export type TproductInfo = {
     name:string;
     description:string;
     price:string;
+    sku:string;
+    reviewquantity:number;
     images:string[];
-    sizes:
-        {
-            size:number;
-            colors:
-                {
-                color:string,
-                stock:number
-                }[]
-            ;
+    variant:{
+        color:string;
+        sizes:{
+            size:string;
+            stock:number;
         }[];
+    }[];
     category_id:number;
     brand_id:number;
     brand_name:string;
@@ -57,7 +56,7 @@ export default async function Page({
             <main style={{display:'flex', flexDirection:'column', width:'100%', boxSizing:'border-box', padding:'0 48px'}}>
                 <div style={{width:'100%',display:'grid', gridTemplateColumns:'3fr 2fr', margin:'0 0 16px 0', gap:'30px'}}>
                     <ProductGallery images={productInfo.images} />
-                    <ProductInfo review={Number(productInfo.rating)} product={productInfo} />
+                    <ProductInfo product={productInfo} />
                 </div>
                 <div style={{width:'60%',display:'flex', margin:'16px'}}>
                     <div>

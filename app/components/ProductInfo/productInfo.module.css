@@ -46,19 +46,29 @@
 
 .colors {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     margin: 16px 0;
+    gap: 8px;
 }
 
-
 .colors button {
-    width: 40px;
-    height: 60px;
+    background-color: #fff;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+
+    &:hover {
+        background-color: #f0f0f0;
+    }
 }
 
 .sizeWrapper {
     display: flex;
     flex-direction: column;
+}
+
+.isSizeMissing {
+    font-weight: 600;
+    color: red;
 }
 
 .size {
@@ -74,10 +84,15 @@
 .size button {
     background-color: #fff;
     border: 1px solid #f0f0f0;
+    border-radius: 8px;
 
     &:hover {
         background-color: #f0f0f0;
     }
+}
+
+.buttonActive {
+    border: 1px solid #000 !important;
 }
 
 .addCartButton {

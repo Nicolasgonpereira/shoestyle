@@ -2,7 +2,7 @@
 
 import { revalidateTag } from "next/cache";
 
-export default async function handleAddCart (product_id:string) {
+export default async function addItemToCart (product_id:string,selectedColor:string,selectedSize:string | undefined) {
     await fetch(`http://localhost:3000/api/cart?user_id=1`, {
         method: 'POST',
         headers: {
@@ -12,8 +12,8 @@ export default async function handleAddCart (product_id:string) {
             "user_id":1,
             "product_id":product_id,
             "variant":{
-                "size":"40",
-                "color":"Red",
+                "size":selectedSize,
+                "color":selectedColor,
             },
             "cart_id":"10",
         }),

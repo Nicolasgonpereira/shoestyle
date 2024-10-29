@@ -7,6 +7,7 @@ export interface ICartItem {
     cart_id:number;
     product_id:number;
     quantity:number;
+    sku:string;
     images:string[];
     variant:{
         size:string;
@@ -48,7 +49,7 @@ export default async function Page() {
                     ))}
                 </div>
                 <div className={styles.summary}>
-                    <h4>Resumo da compra({cartItems.count})</h4>
+                    <h4>Resumo da compra({cartItems.items.reduce((acc,cur)=>(acc+(cur.quantity)),0)})</h4>
                     <div>
                         <span>Produtos</span>
                         <span>R$ {(cartProductPrice).toFixed(2)}</span>
