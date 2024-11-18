@@ -1,12 +1,12 @@
-'use server'
+"use server";
 
 import { revalidateTag } from "next/cache";
 
 export default async function addItemToCart (product_id:string,selectedColor:string,selectedSize:string | undefined) {
-    await fetch(`http://localhost:3000/api/cart?user_id=1`, {
-        method: 'POST',
+    await fetch("http://localhost:3000/api/cart?user_id=1", {
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
         },
         body: JSON.stringify({
             "user_id":1,
@@ -18,5 +18,5 @@ export default async function addItemToCart (product_id:string,selectedColor:str
             "cart_id":"10",
         }),
     });
-    revalidateTag('cartFetch');
+    revalidateTag("cartFetch");
 }

@@ -1,5 +1,5 @@
 
-import { sql } from '@vercel/postgres';
+import { sql } from "@vercel/postgres";
 
 
 export default class Repository {
@@ -23,7 +23,7 @@ export default class Repository {
 
     // CART REPOSITORY
 
-    getCart = async (user_id:number) => {
+    getCart = async (user_id:string|null) => {
         return await sql`
             SELECT ci.*,p.name,p.price,p.images,p.variant AS stock
             FROM cart_items ci
@@ -43,7 +43,7 @@ export default class Repository {
             RETURNING *;
         `;
         return result.rows[0];
-    }
+    };
 
     getUserByCart = async (cart_id:number) => {
         const result = await sql`
@@ -80,6 +80,14 @@ export default class Repository {
         await sql`
             DELETE from cart_items
             WHERE id = ${idProductOnCart} AND cart_id = ${cart_id}
+        `;
+    };
+
+    getUserInfo = async (email:string, password_hash:string) => {
+        return await sql`
+            SELECT *
+            FROM users
+            WHERE email = ${email} AND password_hash = ${password_hash}
         `;
     };
 }

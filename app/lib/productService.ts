@@ -2,10 +2,10 @@
 import Repository from "./db";
 
 export default class ProductService {
-    private repository:Repository
+    private repository:Repository;
 
     constructor (newRepository=new Repository()) {
-        this.repository = newRepository
+        this.repository = newRepository;
     };
 
     getProduct = async (id:string) => {
@@ -18,16 +18,16 @@ export default class ProductService {
         return result;
     };
 
-    getCart = async (user_id:number) => {
+    getCart = async (user_id:string|null) => {
         const result = await this.repository.getCart(user_id);
         return {items:result.rows,count:result.rowCount};
-    }
+    };
 
     verifyUserCart = async (user_id:number, cart_id:number) => {
         const result = await this.repository.getUserByCart(cart_id);
         const verify = result.user_id === user_id;
         return verify;
-    }
+    };
 
     addToCart = async (user_id:number,product_id:number, variant:any, oldCart_id:number) => {
 

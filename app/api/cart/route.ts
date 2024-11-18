@@ -1,4 +1,5 @@
 import ProductService from "@/app/lib/productService";
+import { withSession } from "@/app/middleware/sessionValidator";
 import { NextRequest, NextResponse } from "next/server";
 
 const service = new ProductService;
@@ -11,25 +12,25 @@ export async function POST(request: NextRequest) {
         
         if (!user_id || !product_id || !variant || !cart_id) throw new Error;
 
-        const result = await service.addToCart(user_id,product_id, variant, cart_id);
-        return NextResponse.json({status:200})
+        await service.addToCart(user_id,product_id, variant, cart_id);
+        return NextResponse.json({status:200});
     } catch {
-        return NextResponse.json({message:'Erro ao adicionar o produto no carrinho'}, {status:500});
+        return NextResponse.json({message:"Erro ao adicionar o produto no carrinho"}, {status:500});
     }
 }
 
-export async function GET(request: NextRequest) {
-
-    const {searchParams} = new URL(request.url);
-    const user_id = searchParams.get('user_id');
-
+export const GET = withSession(async (request: NextRequest)  => {
     try {
-        const result = await service.getCart(Number(user_id));
+        const {searchParams} = new URL(request.url);
+        const user_id = searchParams.get("user_id");
+        const userIdVerify = (request as any).user.id;
+        if (userIdVerify != user_id) throw new Error;
+        const result = await service.getCart(user_id);
         return NextResponse.json(result, {status:200});
     } catch {
-        return NextResponse.json({message:'Erro ao buscar o carrinho'}, {status:500})
+        return NextResponse.json({message:"Erro ao buscar o carrinho"}, {status:500});
     }
-}
+});
 
 export async function PUT(request: NextRequest) {
 
@@ -39,6 +40,6 @@ export async function PUT(request: NextRequest) {
         await service.incrementCartItem(user_id, cart_id, idProductOnCart, quantity);
         return NextResponse.json({status:200});
     } catch {
-        return NextResponse.json({message:'Erro ao atualizar o produto no carrinho'}, {status:500});
+        return NextResponse.json({message:"Erro ao atualizar o produto no carrinho"}, {status:500});
     }
 }

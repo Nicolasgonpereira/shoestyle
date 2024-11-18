@@ -2,7 +2,7 @@
 
 export default function Page() {
     return (
-        <main style={{padding:'0 48px', width:'80%', marginBottom:'32px'}}>
+        <main style={{padding:"0 48px", width:"80%", marginBottom:"32px"}}>
             <h2>
                 Projeto de E-commerce de Calçados - ShoeStyle
             </h2>
@@ -15,7 +15,7 @@ export default function Page() {
             <p>
                 O sistema de pagamento não foi implementado pois trata-se de um modelo de desenvolvimento.
             </p>
-            <h3 style={{margin:'12px 0'}}>
+            <h3 style={{margin:"12px 0"}}>
                 Destaques do projeto:
             </h3>
             <ul>
@@ -36,5 +36,5 @@ export default function Page() {
                 O ShoeStyle faz parte do meu portfólio como um projeto pessoal, demonstrando minha habilidade em desenvolver soluções front-end completas , focadas tanto na experiência do usuário, na responsividade do sistema e na entrega.
             </p>
         </main>
-    )
+    );
 }

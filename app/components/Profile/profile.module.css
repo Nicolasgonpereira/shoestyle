@@ -8,6 +8,7 @@
 .item {
     display: flex;
     flex-direction: column;
+    position: relative;
     align-items: center;
     margin: 0 16px;
     text-decoration: none;
@@ -26,12 +27,22 @@
     
 }
 
-.user {
-    height: 36px;
-    width: 36px;
-}
-
 .itemName {
     font-size: 0.8rem;
     margin: 5px 0 0;
+}
+
+.cartCount {
+    display: flex;
+    position: absolute;
+    right: 8px;
+    top: -4px;
+    font-size: 0.8rem;
+    color: #fff;
+    background-color: #000;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
 }

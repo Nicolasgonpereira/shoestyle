@@ -1,4 +1,4 @@
-import styles from './modal.module.css';
+import styles from "./modal.module.css";
 
 export default function Modal({isOpen, onClose, children}:{isOpen:boolean, onClose:()=>void,children:React.ReactNode}) {
 
@@ -9,5 +9,5 @@ export default function Modal({isOpen, onClose, children}:{isOpen:boolean, onClo
                 {children}
             </div>
         </div>
-    )
+    );
 }

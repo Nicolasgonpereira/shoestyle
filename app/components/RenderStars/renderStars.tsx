@@ -17,11 +17,11 @@ export default function RenderStars ({review, size}:{review:number, size:number}
                         fill="gold"
                         width={size}
                         height={size}
-                        >
+                    >
                         <path
                             d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                     </svg>
-                )
+                );
                 review--;
             }
             else if (review<1 && review>=0.5) {
@@ -33,13 +33,13 @@ export default function RenderStars ({review, size}:{review:number, size:number}
                         viewBox="0 0 24 24"
                         width={size}
                         height={size}
-                        >
+                    >
                         <path
                             fill="lightgray"
                             d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
                         <defs>
                             <clipPath id="halfStarClip">
-                            <rect x="0" y="0" width="12" height="24" />
+                                <rect x="0" y="0" width="12" height="24" />
                             </clipPath>
                         </defs>
                         <path
@@ -48,7 +48,7 @@ export default function RenderStars ({review, size}:{review:number, size:number}
                             clipPath="url(#halfStarClip)" 
                         />
                     </svg>
-                )
+                );
                 review--;
             }
             else {
@@ -64,18 +64,18 @@ export default function RenderStars ({review, size}:{review:number, size:number}
                     >
                         <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                     </svg>
-                )
+                );
                 review--;
             }
         };
         return elements;
-    }
+    };
 
     return (
         <>
             {mountingStars(review)}
         </>
-    )
+    );
 }
 
 

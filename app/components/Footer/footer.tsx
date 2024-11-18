@@ -1,7 +1,7 @@
 
-import Link from 'next/link';
-import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io';
-import styles from './footer.module.css';
+import Link from "next/link";
+import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io";
+import styles from "./footer.module.css";
 
 export default function Footer() {
     return (
@@ -29,14 +29,14 @@ export default function Footer() {
                     Contatos
                 </h3>
                 <a className={styles.contactLink} href='https://github.com/Nicolasgonpereira' target='_blank' >
-                    <span style={{display:'flex', alignItems:'center'}}><IoLogoGithub style={{width:'24px',height:'24px'}}/></span>
+                    <span style={{display:"flex", alignItems:"center"}}><IoLogoGithub style={{width:"24px",height:"24px"}}/></span>
                     <span>/Nicolasgonpereira</span>
                 </a>
                 <a className={styles.contactLink} href='https://www.linkedin.com/in/nicolasgoncalvespereira/' target='_blank' >
-                    <span style={{display:'flex', alignItems:'center'}}><IoLogoLinkedin style={{width:'24px',height:'24px'}}/></span>
+                    <span style={{display:"flex", alignItems:"center"}}><IoLogoLinkedin style={{width:"24px",height:"24px"}}/></span>
                     <span>/nicolasgoncalvespereira</span>
                 </a>
             </section>
         </footer>
-    )
+    );
 }

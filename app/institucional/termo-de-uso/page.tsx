@@ -2,7 +2,7 @@
 
 export default function Page() {
     return (
-        <main style={{padding:'0 48px', width:'80%', marginBottom:'32px'}}>
+        <main style={{padding:"0 48px", width:"80%", marginBottom:"32px"}}>
             <h2>
                 Termo de Uso e Responsabilidade - ShoeStyle
             </h2>
@@ -28,5 +28,5 @@ export default function Page() {
                 <b>6. Contato</b> Caso tenha dúvidas sobre este Termo de Uso e Responsabilidade, entre em contato por meio das informações fornecidas no site.
             </p>
         </main>
-    )
+    );
 }

@@ -1,12 +1,12 @@
-'use client'
+"use client";
 
-import { TproductInfo } from '@/app/[id]/[[...slug]]/page';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
-import styled from 'styled-components';
-import RenderStars from '../RenderStars/renderStars';
+import { TproductInfo } from "@/app/(shop)/[id]/[[...slug]]/page";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import styled from "styled-components";
+import RenderStars from "../RenderStars/renderStars";
 
 const CarouselWrapper = styled.div`
     box-sizing: border-box;
@@ -82,52 +82,52 @@ export default function Carousel({products}:{products:TproductInfo[]}) {
 
     useEffect(()=> {
         setIsMounted(true);
-    },[])
+    },[]);
   
 
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === Math.ceil(products.length / productsPerSlide) - 1 ? 0 : prevIndex + 1
+    const nextSlide = () => {
+        setCurrentIndex((prevIndex) =>
+            prevIndex === Math.ceil(products.length / productsPerSlide) - 1 ? 0 : prevIndex + 1
+        );
+    };
+
+    const prevSlide = () => {
+        setCurrentIndex((prevIndex) =>
+            prevIndex === 0 ? Math.ceil(products.length / productsPerSlide) - 1 : prevIndex - 1
+        );
+    };
+
+    if (!isMounted) {
+        return null;
+    }
+
+    return (
+        <>
+            <CarouselWrapper>
+                <ImageContainer $translateValue={-currentIndex * 100}>
+                    {products.map((product) => (
+                        <ProductCard
+                            key={product.id}
+                            style={{flex:`0 0 ${100/productsPerSlide}%`}}
+                            href={`${product.id}`}
+                        >
+                            <Image
+                                src={product.images[0]}
+                                alt={`foto do ${product.name}`}
+                                width={200}
+                                height={200}
+                                style={{
+                                }}
+                            />
+                            <h3>{product.name}</h3>
+                            <p><RenderStars review={Number(product.rating)} size={24}/></p>
+                            <p>R$ {product.price}</p>
+                        </ProductCard>
+                    ))}
+                </ImageContainer>
+                <PrevButton onClick={prevSlide}><MdKeyboardArrowLeft /></PrevButton>
+                <NextButton onClick={nextSlide}><MdKeyboardArrowRight /></NextButton>
+            </CarouselWrapper>
+        </>
     );
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? Math.ceil(products.length / productsPerSlide) - 1 : prevIndex - 1
-    );
-  };
-
-  if (!isMounted) {
-    return null;
-  }
-
-  return (
-    <>
-        <CarouselWrapper>
-            <ImageContainer $translateValue={-currentIndex * 100}>
-                {products.map((product) => (
-                    <ProductCard
-                      key={product.id}
-                      style={{flex:`0 0 ${100/productsPerSlide}%`}}
-                      href={`${product.id}`}
-                      >
-                        <Image
-                            src={product.images[0]}
-                            alt={`foto do ${product.name}`}
-                            width={200}
-                            height={200}
-                            style={{
-                            }}
-                        />
-                        <h3>{product.name}</h3>
-                        <p><RenderStars review={Number(product.rating)} size={24}/></p>
-                        <p>R$ {product.price}</p>
-                    </ProductCard>
-                ))}
-            </ImageContainer>
-            <PrevButton onClick={prevSlide}><MdKeyboardArrowLeft /></PrevButton>
-            <NextButton onClick={nextSlide}><MdKeyboardArrowRight /></NextButton>
-        </CarouselWrapper>
-    </>
-  );
 }

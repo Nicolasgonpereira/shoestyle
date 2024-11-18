@@ -1,7 +1,7 @@
 import { BsCreditCard } from "react-icons/bs";
 import { RiDiscountPercentLine } from "react-icons/ri";
 import { TbTruckDelivery } from "react-icons/tb";
-import styles from './benefits.module.css';
+import styles from "./benefits.module.css";
 
 export default function Benefits() {
     return(
@@ -26,5 +26,5 @@ export default function Benefits() {
             </div>
             <div></div>
         </div>
-    )
+    );
 }
