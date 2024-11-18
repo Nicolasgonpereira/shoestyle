@@ -2,6 +2,16 @@
 
 ShoeStyle é um e-commerce focado na venda de calçados. Ele oferece funcionalidades como carrinho de compras, barra de busca, filtros personalizados, página de marcas e informações detalhadas sobre os produtos.
 
+
+## Tecnologias Utilizadas
+
+- **Next.js**: Framework React para SSR (Server-Side Rendering).
+~~- **Styled-Components**: Estilização baseada em componentes.~~
+- **CSS Module**: A estilização foi realizada utilizando CSS Modules do Next.js. A escolha pelo CSS Module foi motivada pela sua integração nativa com o Next.js, que facilita a renderização no lado do servidor (SSR), sem a necessidade de plugins auxiliares ou técnicas adicionais. Em contraste, o styled-components exige configuração extra para garantir o funcionamento adequado da renderização no servidor.
+- **PostgreSQL**: Banco de dados relacional.
+- **Normalize.css**: Estilização global visando manter consistência visual entre diversos navegadores (cross-browser).
+
+
 ## Funcionalidades
 
 - **Carrinho de Compras**: Adicione e remova produtos do carrinho.
@@ -10,12 +20,14 @@ ShoeStyle é um e-commerce focado na venda de calçados. Ele oferece funcionalid
 - **Página de Marcas**: Veja todos os produtos de uma marca específica.
 - **Informações Detalhadas**: Descrição completa dos produtos na página de detalhes.
 
-## Tecnologias Utilizadas
 
-- **Next.js**: Framework React para SSR (Server-Side Rendering).
-- **Styled-Components**: Estilização baseada em componentes.
-- **PostgreSQL**: Banco de dados relacional.
-- **Normalize.css**: Estilização global visando manter consistência visual entre diversos navegadores (cross-browser).
+## Coming Soon
+
+- **Criação de conta**: A funcionalidade de criação de conta será adicionada em breve, permitindo que os usuários se registrem.
+- **Busca de produtos pelo nome**: Em breve, será possível pesquisar produtos por nome, facilitando a navegação e a localização dos itens desejados.
+- **Página de produtos por marca**: Uma página de busca por marca será implementada, permitindo aos usuários filtrar os produtos por suas marcas.
+- **Filtros**: Filtros adicionais para refinar a pesquisa por preço, tamanho, etc., serão adicionados para melhorar a experiência de compra.
+
 
 ## Deploy
 
