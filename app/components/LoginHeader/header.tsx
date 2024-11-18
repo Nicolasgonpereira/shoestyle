@@ -1,5 +1,6 @@
 
 import Link from "next/link";
+import Brand from "../Brand/brand";
 import styles from "./header.module.css";
 
 
@@ -9,7 +10,7 @@ export default function LoginHeader () {
         <>
             <header className={styles.header}>
                 <Link className={styles.brand} href="/">
-                    ShoeStyle
+                    <Brand />
                 </Link>
             </header>
         </>

@@ -1,13 +1,14 @@
 
 import Link from "next/link";
 import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io";
+import Brand from "../Brand/brand";
 import styles from "./footer.module.css";
 
 export default function Footer() {
     return (
         <footer className={styles.footerWrapper}>
             <section className={styles.brand}>
-                ShoeStyle
+                <Brand />
             </section>
             <section>
                 <h3>
