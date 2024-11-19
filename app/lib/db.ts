@@ -74,6 +74,14 @@ export default class Repository {
             SET quantity = ${quantity}
             WHERE id = ${idProductOnCart} AND cart_id = ${cart_id}
         `;
+        return await sql`
+        SELECT ci.*,p.name,p.price,p.images,p.variant AS stock
+        FROM cart_items ci
+        JOIN cart c ON ci.cart_id = c.id
+        JOIN products p ON ci.product_id = p.id
+        WHERE c.id = ${cart_id}
+        ORDER BY ci.id ASC;
+    `;
     };
 
     DeleteItemOnCart = async (cart_id:number, idProductOnCart:number) => {
@@ -81,6 +89,14 @@ export default class Repository {
             DELETE from cart_items
             WHERE id = ${idProductOnCart} AND cart_id = ${cart_id}
         `;
+        return await sql`
+        SELECT ci.*,p.name,p.price,p.images,p.variant AS stock
+        FROM cart_items ci
+        JOIN cart c ON ci.cart_id = c.id
+        JOIN products p ON ci.product_id = p.id
+        WHERE c.id = ${cart_id}
+        ORDER BY ci.id ASC;
+    `;
     };
 
     getUserInfo = async (email:string, password_hash:string) => {

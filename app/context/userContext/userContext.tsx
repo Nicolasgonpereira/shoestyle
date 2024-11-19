@@ -41,7 +41,7 @@ interface UserContext {
     user: User | null;
     setUser: (user:User) => void;
     cart: ICartItems | null;
-    setCart: (cart: ICartItems) => void;
+    setCart: (cart: ICartItems | null) => void;
     fetchCartItems: () => void;
 }
 

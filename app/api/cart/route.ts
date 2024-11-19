@@ -37,8 +37,8 @@ export async function PUT(request: NextRequest) {
     const {user_id, cart_id, idProductOnCart, quantity} = await request.json();
 
     try {
-        await service.incrementCartItem(user_id, cart_id, idProductOnCart, quantity);
-        return NextResponse.json({status:200});
+        const result = await service.incrementCartItem(user_id, cart_id, idProductOnCart, quantity);
+        return NextResponse.json(result, {status:200});
     } catch {
         return NextResponse.json({message:"Erro ao atualizar o produto no carrinho"}, {status:500});
     }
