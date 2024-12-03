@@ -1,6 +1,7 @@
 
 import ProductGallery from "@/app/components/ProductGallery/productGallery";
 import ProductInfo from "@/app/components/ProductInfo/productInfo";
+import { app_root } from "@/app/lib/root";
 import { slugify } from "@/app/lib/slugify";
 import Link from "next/link";
 import { permanentRedirect } from "next/navigation";
@@ -34,7 +35,7 @@ export default async function Page({
 }: {
     params: { id: string, slug?: string[] }
 }) {
-    const productInfo:TproductInfo = await fetch(`http://localhost:3000/api/products/${params.id}`,{method:"GET"}).then(res=>res.json());
+    const productInfo:TproductInfo = await fetch(`${app_root}/api/products/${params.id}`,{method:"GET"}).then(res=>res.json());
 
     if (!productInfo.id) {
         return (

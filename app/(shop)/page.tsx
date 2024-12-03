@@ -2,11 +2,12 @@
 import Image from "next/image";
 import Benefits from "../components/Benefits/benefits";
 import Carousel from "../components/Carousel/carousel";
+import { app_root } from "../lib/root";
 import styles from "./page.module.css";
 
 export default async function Home() {
 
-    const productsList = await fetch("http://localhost:3000/api/products", {method:"GET"}).then(res=>res.json());
+    const productsList = await fetch(`${app_root}/api/products`, {method:"GET"}).then(res=>res.json());
 
     return (
         <main style={{display:"flex", flexDirection:"column", width:"100%"}}>
