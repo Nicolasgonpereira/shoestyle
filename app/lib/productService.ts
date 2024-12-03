@@ -55,11 +55,11 @@ export default class ProductService {
         if (quantity <=0) {
 
             const result = await this.repository.DeleteItemOnCart(cart_id,idProductOnCart);
-            return {items:result.rows,count:result.rowCount}
+            return {items:result.rows,count:result.rowCount};
         } else {
 
             const result = await this.repository.ModifyQuantityItemOnCart(cart_id,idProductOnCart,quantity);
-            return {items:result.rows,count:result.rowCount}
+            return {items:result.rows,count:result.rowCount};
         }
     };
 }

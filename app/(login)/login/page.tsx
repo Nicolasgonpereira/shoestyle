@@ -101,7 +101,7 @@ export default function LoginPage() {
                             Criar conta
                         </button>
                         {newAccountButtonClick &&
-                            <p style={{ color: "red", textAlign: 'center' }}>Recurso sendo implementado</p>
+                            <p style={{ color: "red", textAlign: "center" }}>Recurso sendo implementado</p>
                         }
                     </form>
                 </section>

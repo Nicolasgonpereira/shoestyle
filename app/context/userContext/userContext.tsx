@@ -52,8 +52,8 @@ export function UserProvider({children}: {children:React.ReactNode}) {
     const [cart, setCart] = useState<ICartItems | null>(null);
 
     const fetchCartItems = async () => {
-        setCart(await cartLoad(user?.id))
-    }
+        setCart(await cartLoad(user?.id));
+    };
     useEffect(()=>{
         const fetchTokenPayload = async () => {
             const tokenPayload = await getTokenPayload();
@@ -68,6 +68,7 @@ export function UserProvider({children}: {children:React.ReactNode}) {
         if(user) {
             fetchCartItems();
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[user]);
 
     return (

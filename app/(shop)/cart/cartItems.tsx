@@ -13,7 +13,7 @@ import { ICartItem } from "./page";
 export default function CartItems({item}:{item:ICartItem}) {
 
     const {user, setCart} = useUserContext();
-    const [loadingHandleQuantifyModify, setLoadingHandleQuantifyModify] = useState<boolean>(false)
+    const [loadingHandleQuantifyModify, setLoadingHandleQuantifyModify] = useState<boolean>(false);
     const colorStock = item.stock.find((entry) => entry.color === item.variant.color);
     const sizeStock = colorStock?.sizes.find((element) => element.size === Number(item.variant.size));
 
@@ -27,21 +27,21 @@ export default function CartItems({item}:{item:ICartItem}) {
 
     const handleIncrement = async () => {
         if (!loadingHandleQuantifyModify) {
-            setLoadingHandleQuantifyModify(true)
+            setLoadingHandleQuantifyModify(true);
             const cart = await modifyItemCart(user?.id,item.cart_id,item.id,item.quantity+1);
             setCart(cart);
-            setLoadingHandleQuantifyModify(false)
+            setLoadingHandleQuantifyModify(false);
         }
     };
 
     const handleDecrement = async () => {
         if (!loadingHandleQuantifyModify) {
-            setLoadingHandleQuantifyModify(true)
+            setLoadingHandleQuantifyModify(true);
             const cart = await modifyItemCart(user?.id,item.cart_id,item.id,item.quantity-1);
             setCart(cart);
-            setLoadingHandleQuantifyModify(false)
+            setLoadingHandleQuantifyModify(false);
         }
-    }
+    };
 
     return(
         <div className={styles.itemRow}>

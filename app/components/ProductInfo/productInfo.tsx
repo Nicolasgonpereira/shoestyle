@@ -33,7 +33,7 @@ export default function ProductInfo({product}:{product:TproductInfo}) {
                 setLoadingAddCart(false);
             }
         }
-    }
+    };
 
 
     return (
