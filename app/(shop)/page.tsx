@@ -7,7 +7,7 @@ import styles from "./page.module.css";
 
 export default async function Home() {
 
-    const productsList = await fetch(`${app_root}/api/products`, {method:"GET"}).then(res=>res.json());
+    const productsList = await fetch(`${app_root}/api/products`, {method:"GET", cache: "no-store"}).then(res=>res.json());
 
     return (
         <main style={{display:"flex", flexDirection:"column", width:"100%"}}>
