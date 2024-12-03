@@ -16,7 +16,7 @@ export default function ProductInfo({product}:{product:TproductInfo}) {
     const [selectedSize, setSelectedSize] = useState<string>();
     const [isSizeMissing, setIsSizeMissing] = useState<boolean>(false);
     const [loadingAddCart, setLoadingAddCart] = useState<boolean>(false);
-    const {fetchCartItems} = useUserContext();
+    const {fetchCartItems, user} = useUserContext();
     const allowedSizes = (): string[] | undefined => {
         const variant = product.variant.find(variant => variant.color === selectedColor);
         return variant ? variant.sizes.map(e=>e.size).sort() : undefined;
@@ -28,7 +28,7 @@ export default function ProductInfo({product}:{product:TproductInfo}) {
             if (!loadingAddCart) {
                 setLoadingAddCart(true);
                 setIsSizeMissing(false);
-                await addItemToCart(product_id,selectedColor,selectedSize);
+                await addItemToCart(user?.id,product_id,selectedColor,selectedSize);
                 fetchCartItems();
                 setLoadingAddCart(false);
             }
