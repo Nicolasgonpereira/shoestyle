@@ -53,7 +53,6 @@ export function UserProvider({children}: {children:React.ReactNode}) {
 
     const fetchCartItems = async () => {
         setCart(await cartLoad(user?.id))
-        console.log(cart)
     }
     useEffect(()=>{
         const fetchTokenPayload = async () => {

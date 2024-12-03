@@ -15,7 +15,6 @@ export default async function modifyItemCart(user_id:string | undefined, cart_id
             }),
         }).then(res=>res.json());
         revalidateTag("cartFetch");
-        console.log(result)
         return result;
     }
     return null;
