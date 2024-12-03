@@ -1,11 +1,10 @@
 "use client";
 
-import { app_root } from "@/app/lib/root";
 import { revalidateTag } from "next/cache";
 
 export default async function addItemToCart (user_id: string = "1",product_id:string,selectedColor:string,selectedSize:string | undefined) {
     
-    await fetch(`${app_root}/api/cart?user_id=${user_id}`, {
+    await fetch(`/api/cart?user_id=${user_id}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
