@@ -1,0 +1,1 @@
+export const app_root = process.env.ROOT;

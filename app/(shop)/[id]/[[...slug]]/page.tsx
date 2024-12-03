@@ -71,21 +71,3 @@ export default async function Page({
         </main>
     );
 }
-
-
-// export async function generateStaticParams() {
-
-//     const products = [
-//         {
-//         id:'1',
-//         slug:'tenis-42br'},
-//         {
-//         id:'5',
-//         slug:'tenis-45br'}
-//     ];
-
-//     return products.map((product)=>({
-//         id: product.id,
-//         slug: [product.slug]
-//     }));
-// }
